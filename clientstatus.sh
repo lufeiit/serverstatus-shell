@@ -6,7 +6,7 @@ read -p "Please enter same password with server (default is zorz.cc):" password_
 password_c=${password_c:-zorz.cc} 
 read -p "Please enter server address (domain or ip) :" server_address
 [[ -z $server_address ]] && echo "server address is needed" && exit 1
-wget --no-check-certificate https://raw.githubusercontent.com/cppla/ServerStatus/master/clients/client-linux.py -O /root/client-linux.py
+wget --no-check-certificate https://raw.githubusercontent.com/lufeiit/serverstatus-shell/master/client-linux.py -O /root/client-linux.py
 [[ -z $(which python) ]] && apt-get update && apt-get install python -y
 sed -i 's/'"127.0.0.1"/"${server_address}"'/' ${client_file}
 sed -i 's/USER = "s01"/USER = "'"${username_c}"'"/' ${client_file}
